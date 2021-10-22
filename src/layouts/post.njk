@@ -1,0 +1,71 @@
+---
+permalink: "{{ slug | permalink({ date: date, locale: locale, type: 'post' }) }}"
+---
+{% import "t9n.njk" as t9n %}
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="post">
+  <div class="post-content-wrapper">
+   <aside class="post-sidebar">
+      <nav
+        aria-label="{{ 'Table of contents' | t9n(locale) }}"
+        class="post-toc"
+        id="post-toc"
+      >
+        {{ content | toc | safe }}
+      </nav>
+    </aside>
+
+    <article class="post-content">
+      <div class="post-header-wrapper">
+        <header class="post-header">
+          <h1 class="post-title">{{ title }}</h1>
+
+          <div class="post-metadata">
+            <time datetime="{{ date }}">{{ date | i18n.date(locale) }}</time>
+
+            {% if (hashtags | length) > 0 %}
+              <span class="post-tags">
+                {% for tag in hashtags %}
+                  <span class="post-tag">{{ tag }}</a>
+                {% endfor %}
+              </span>
+            {% endif %}
+
+            {#
+            {% set t9ns = collections.post | sameId(id) %}
+            {% if (t9ns | length) > 1 %}
+              {{ t9n.switcher(t9ns, locale, locales, "post", true) }}
+              </ul>
+            {% endif %}
+            #}
+          </div>
+        </header>
+
+        {% if featuredImage.src %}
+          <figure class="post-featured-image-wrapper">
+            <div class="post-featured-image">
+              {% image featuredImage.src, featuredImage.alt, 760 %}
+            </div>
+
+            {% if featuredImage.caption %}
+              <figcaption class="post-featured-image-caption">
+                {{ featuredImage.caption }}
+              </figcaption>
+            {% endif %}
+          </figure>
+        {% endif %}
+      </div>
+
+      <main id="post-content" class="post-main">{{ content | safe }}</main>
+    </article>
+  </div>
+</div>
+
+{% set postJs %}
+  {% include "scripts/post.js" %}
+{% endset %}
+<script>{{ postJs | jsmin | safe }}</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{
+  "author": {
+    "name": "Griffen Schwiesow",
+    "url": "https://www.portfolio.gs/"
+  },
+  "bugs": {
+    "url": "https://github.com/schwigri/weblog/issues"
+  },
+  "description": "Explorations in cross-cultural design",
+  "homepage": "https://www.weblog.gs/",
+  "license": "MIT",
+  "name": "weblog",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schwigri/weblog.git"
+  },
+  "scripts": {
+    "build": "npm run build:sass & npm run build:eleventy",
+    "build:eleventy": "eleventy",
+    "build:sass": "sass ./src/styles:./src/includes/styles --style=compressed --no-source-map",
+    "clean": "rm -rf _site",
+    "debug": "DEBUG=* npm run build",
+    "lint": "eslint --fix",
+    "serve": "npm run watch:sass & npm run serve:eleventy",
+    "serve:eleventy": "eleventy --serve",
+    "start": "npm run serve",
+    "watch": "npm run watch:sass & npm run watch:eleventy",
+    "watch:eleventy": "eleventy --watch",
+    "watch:sass": "npm run build:sass -- --watch"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-img": "^0.10.0",
+    "debug": "^4.3.2",
+    "eleventy-plugin-toc": "^1.1.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "html-minifier": "^4.0.0",
+    "markdown-it-anchor": "^8.4.1",
+    "posthtml": "^0.16.5",
+    "posthtml-minify-classnames": "^0.3.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1",
+    "terser": "^5.9.0"
+  }
+}

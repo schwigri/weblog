@@ -1,0 +1,23 @@
+/**
+ * SETTINGS
+ */
+
+/* Categories 01–03 are the basics. */
+@import "01-tools/functions";
+@import "01-tools/mixins";
+
+@import "02-settings/fonts";
+@import "02-settings/global";
+
+@import "03-generic/generic";
+@import "03-generic/t9n";
+@import "03-generic/a11y";
+
+@import "04-elements/misc";
+
+@import "05-blocks/latest-post";
+
+/* Components */
+@import "06-components/site";
+@import "06-components/page";
+@import "06-components/post";

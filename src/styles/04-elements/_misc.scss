@@ -1,0 +1,29 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @extend %heading;
+
+  font-family: var(--fonts--heading);
+  line-height: 1.15;
+  margin: 1em 0 0.5em;
+}
+
+ol,
+p,
+ul {
+  line-height: 1.4;
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--colors--accent);
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}

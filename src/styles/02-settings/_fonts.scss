@@ -1,0 +1,47 @@
+@font-face {
+  font-display: swap;
+  font-family: Inter;
+  font-style: oblique 0deg 10deg;
+  font-weight: 100 900;
+  src: url("/static/fonts/inter.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Prompt;
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url("/static/fonts/prompt-latin-600-normal.woff2") format("woff2"),
+    url("/static/fonts/prompt-latin-600-normal.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/static/fonts/work-sans-latin-400-normal.woff2") format("woff2"),
+    url("/static/fonts/work-sans-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url("/static/fonts/work-sans-latin-600-normal.woff2") format("woff2"),
+    url("/static/fonts/work-sans-latin-600-normal.woff") format("woff");
+}
+
+@font-face {
+  display: swap;
+  font-family: "nihongo";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/static/fonts/nihongo.woff2") format("woff2")
+    url("/static/fonts/nihongo.woff") format("woff");
+}

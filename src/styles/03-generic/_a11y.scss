@@ -1,0 +1,26 @@
+.screen-reader-text {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+.skip-link:focus {
+  background-color: var(--colors--copy);
+  border-radius: 0.25em;
+  clip-path: none;
+  color: var(--colors--background);
+  height: auto;
+  left: var(--responsive--spacing-medium);
+  padding: var(--responsive--spacing-medium);
+  text-decoration: none;
+  top: var(--responsive--spacing-medium);
+  width: auto;
+  z-index: 9;
+}

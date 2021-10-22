@@ -1,0 +1,10 @@
+{% import "t9n.njk" as t9n %}
+
+<aside class="site-top-bar">
+  <div class="site-top-bar-content">
+    {% if id %}
+      {% set t9ns = collections.all | sameId(id) %}
+    {% endif %}
+    {{ t9n.switcher(t9ns, locale, locales, "site-top-bar") }}
+  </div>
+</aside>

@@ -1,0 +1,10 @@
+---
+permalink: "{{ slug | permalink({ locale: locale }) }}"
+---
+{% extends "layout.njk" %}
+
+{% block content %}
+
+{% include "page.njk" %}
+
+{% endblock %}

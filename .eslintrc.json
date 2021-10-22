@@ -1,0 +1,37 @@
+{
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "env": {
+        "browser": true
+      },
+      "files": ["./src/includes/scripts/**/*.js"],
+      "parserOptions": {
+        "ecmaVersion": 2017
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "eol-last": "error",
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "prettier/prettier": "error",
+    "quotes": ["warn", "double", { "avoidEscape": true }],
+    "sort-imports": "warn",
+    "yoda": "error"
+  }
+}

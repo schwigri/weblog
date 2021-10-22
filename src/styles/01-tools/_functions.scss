@@ -1,0 +1,14 @@
+@function pow($base, $exponent) {
+  $result: 1;
+
+  @for $_ from 1 through $exponent {
+    $result: $result * $base;
+  }
+
+  @return $result;
+}
+
+@function tracking($fontSize) {
+  $e: pow(2.71, $fontSize * -0.1745);
+  @return -0.0223 + 0.185 * $e;
+}

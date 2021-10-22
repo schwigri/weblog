@@ -1,0 +1,62 @@
+$breakpoint_sm: 482px;
+$breakpoint_md: 592px;
+$breakpoint_lg: 652px;
+$breakpoint_xl: 822px;
+$breakpoint_xxl: 1024px;
+
+@mixin max-width($bp) {
+	@media only screen and (max-width: #{$bp}) {
+		@content;
+	}
+}
+
+@mixin min-width($bp) {
+	@media only screen and (min-width: #{$bp}) {
+		@content;
+	}
+}
+
+@mixin media($bp) {
+	@if $bp == sm {
+		@include min-width($breakpoint_sm) {
+			@content;
+		}
+	}
+
+	@if $bp == md {
+		@include min-width($breakpoint_md) {
+			@content;
+		}
+	}
+
+	@if $bp == lg {
+		@include min-width($breakpoint_lg) {
+			@content;
+		}
+	}
+
+	@if $bp == xl {
+		@include min-width($breakpoint_xl) {
+			@content;
+		}
+	}
+
+	@if $bp == xxl {
+		@include min-width($breakpoint_xxl) {
+			@content;
+		}
+	}
+}
+
+@mixin contentItem {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul {
+    @content;
+  }
+}

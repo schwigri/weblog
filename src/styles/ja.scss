@@ -1,0 +1,29 @@
+@font-face {
+  font-display: swap;
+  font-family: "Dela Gothic One";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/static/fonts/dela-gothic-one-japanese-400-normal.woff2") format("woff2"),
+    url("/static/fonts/dela-gothic-one-japanese-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "M PLUS 1p";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("/static/fonts/m-plus-1p-japanese-400-normal.woff2") format("woff2"),
+    url("/static/fonts/m-plus-1p-japanese-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "M PLUS 1p";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url("/static/fonts/m-plus-1p-japanese-700-normal.woff2") format("woff2"),
+    url("/static/fonts/m-plus-1p-japanese-700-normal.woff") format("woff");
+}

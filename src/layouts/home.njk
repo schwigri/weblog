@@ -1,0 +1,10 @@
+---
+permalink: "{{ '/' | permalink({ locale: locale }) }}"
+---
+{% extends "layout.njk" %}
+
+{% block content %}
+
+{% include "latest-post.njk" %}
+
+{% endblock %}

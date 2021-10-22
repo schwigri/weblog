@@ -1,0 +1,31 @@
+{% import "t9n.njk" as t9n %}
+
+<button class="site-menu-toggle-button">
+  {{ "Toggle menu" | t9n(locale) }}
+</button>
+
+<div class="site-menu">
+  <nav class="site-nav">
+    {% set navItems = collections.all | navigation(locale) %}
+    {% if (navItems | length) > 0 %}
+      <ul class="site-nav-list">
+        {% for item in navItems %}
+          <li class="site-nav-list-item">
+            <a
+              {% if page.url === item.url %}
+                aria-current="page"
+              {% endif %}
+              class="site-nav-link"
+              href="{{ item.url | url }}"
+            >
+              {{ item.data.navigation.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </nav>
+
+  {% set t9ns = collections.all | sameId(id) %}
+  {{ t9n.switcher(t9ns, locale, locales, "site-menu") }}
+</div>

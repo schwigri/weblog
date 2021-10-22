@@ -1,0 +1,144 @@
+.post-header-wrapper {
+  @extend %alignFull;
+
+  margin-bottom: var(--responsive--spacing-extraWide);
+  position: relative;
+}
+
+.post-metadata {
+  align-items: baseline;
+  display: flex;
+}
+
+.post-tags, .post-t9ns {
+  &::before {
+    content: "/";
+    margin: 0 0.5em;
+  }
+}
+
+.post-t9ns {
+  display: inline-block;
+}
+
+.post-tag {
+  color: var(--colors--copy-subtitle);
+
+  &::before {
+    content: "#";
+  }
+}
+
+.post-featured-image-wrapper {
+  margin: var(--responsive--spacing-extraWide) 0;
+}
+
+.post-featured-image {
+  border-radius: 1em;
+  overflow: hidden;
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.post-featured-image-caption {
+  @extend %fontSizeSmall;
+  @extend %italic;
+
+  color: var(--colors--copy-subtitle);
+  margin-top: var(--responsive--spacing-medium);
+}
+
+.post-title {
+  @extend %fontSizeLarge;
+
+  margin-top: 0;
+  position: relative;
+
+  &::before {
+    background-color: var(--colors--accent);
+    content: "";
+    height: 100%;
+    left: calc(-1 * var(--responsive--spacing-wide));
+    position: absolute;
+    width: 0.25rem;
+
+    @include media("md") {
+      width: 0.5rem;
+    }
+  }
+}
+
+.post-content {
+  @include contentItem {
+    @extend %alignDefault;
+  }
+
+  @include media("lx") {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.post-main {
+  @extend %fontSizeBase;
+
+  h2,
+  h3 {
+    &::before {
+      content: "";
+      display: block;
+      height: calc(105px + var(--responsive--spacing-wide));
+      margin-top: calc(-105px - var(--responsive--spacing-wide));
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
+
+  ol,
+  ul {
+    padding-left: calc(1em + var(--responsive--spacing-wide));
+  }
+}
+
+.post-toc {
+  color: var(--colors--copy-subtitle);
+  position: sticky;
+  top: calc(105px + var(--responsive--spacing-wide));
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &[aria-current="location"] {
+      color: var(--colors--copy);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-sidebar {
+  @extend %uponXl;
+
+  position: relative;
+
+  @include media("xl") {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.post-content-wrapper {
+  @extend %alignWide;
+
+  display: grid;
+  gap: var(--responsive--spacing-wide);
+
+  @include media("xl") {
+    grid-template-columns: 2fr 1fr;
+  }
+}

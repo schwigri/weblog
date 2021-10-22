@@ -1,0 +1,37 @@
+<!doctype html>
+<html
+  dir="{{ dir or 'ltr' }}"
+  lang="{{ locale or 'en-US' }}"
+>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ metadata.title or title }}</title>
+    {% if locale === "ja" %}
+      <style>{% include "styles/ja.css" %}</style>
+    {% endif %}
+    <style>{% include "styles/design.css" %}</style>
+  </head>
+  <body>
+    <a class="screen-reader-text skip-link" href="#site-content">
+      {{ "Skip to main content" | t9n(locale) }}
+    </a>
+
+    <div class="site">
+      {% include "top-bar.njk" %}
+
+      {% include "header.njk" %}
+
+      <div id="site-content" class="site-content">
+        {% block content %}{{ content | safe }}{% endblock %}
+      </div>
+
+      {% include "footer.njk" %}
+    </div>
+
+    {% set appJs %}
+      {% include "scripts/app.js" %}
+    {% endset %}
+    <script>{{ appJs | jsmin | safe }}</script>
+  </body>
+</html>

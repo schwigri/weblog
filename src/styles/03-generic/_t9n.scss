@@ -1,0 +1,49 @@
+.individual-t9n {
+  display: none;
+
+  &[data-visible="true"] {
+    display: initial;
+  }
+}
+
+:lang(ja) :not(:lang(ja)),
+.t9n-font-copy {
+  font-family: var(--fonts--copy);
+}
+
+.t9ns {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.t9n {
+  display: inline-block;
+
+  &::after {
+    content: "/";
+    margin: 0 0.5em;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[aria-current="page"] {
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+}

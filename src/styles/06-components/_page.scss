@@ -1,0 +1,15 @@
+.page-title {
+  @extend %fontSizeLarge;
+
+  text-align: center;
+}
+
+.page-content {
+  @extend %fontSizeBase;
+
+  @include contentItem {
+    @extend %alignDefault;
+
+    padding: 0 var(--responsive--spacing-wide);
+  }
+}

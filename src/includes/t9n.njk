@@ -1,0 +1,43 @@
+{% macro link(t9ns, locale, text, current=false) %}
+  {% set backup = true %}
+  {% if t9ns and not current %}
+    {% set t9n = t9ns | sameLocale(locale) | first %}
+    {% if t9n.url %}
+      {% set backup = false %}
+      <a href="{{ t9n.url }}">{{ text }}</a>
+    {% endif %}
+  {% endif %}
+
+  {% if backup == true or current %}
+    <a
+      {% if current %}
+        aria-current="page"
+      {% endif %}
+      href="{{ '' | permalink({ locale: locale, type: 'home' }) }}"
+    >
+      {{ text }}
+    </a>
+  {% endif %}
+{% endmacro %}
+
+{% macro switcher(t9ns, locale, locales, className, suppress) %}
+  <ul class="{{ className }}-t9ns t9ns t9n-switcher" role="list">
+    {% if suppress !== true or locale !== "de-CH" %}
+      <li class="{{ className }}-t9n t9n t9n-font-copy" lang="de-CH">
+        {{ link(t9ns, "de-CH", locales["de-CH"].name, locale === "de-CH") }}
+      </li>
+    {% endif %}
+
+    {% if suppress !== true or locale !== "en-US" %}
+      <li class="{{ className }}-t9n t9n t9n-font-copy" lang="en">
+        {{ link(t9ns, "en-US", locales["en-US"].name, locale === "en-US") }}
+      </li>
+    {% endif %}
+
+    {% if suppress !== true or locale !== "ja" %}
+      <li class="{{ className }}-t9n t9n t9n-font-copy" lang="ja">
+        {{ link(t9ns, "ja", locales["ja"].name, locale === "ja") }}
+      </li>
+    {% endif %}
+  </ul>
+{% endmacro %}

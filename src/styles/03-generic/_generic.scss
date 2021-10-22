@@ -1,0 +1,14 @@
+html {
+	font-size: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	background-color: var(--colors--accent);
+	color: var(--colors--copy);
+	font-family: var(--fonts--copy);
+	font-size: var(--fontSizes--small);
+  letter-spacing: var(--tracking--small);
+	line-height: 1;
+	margin: 0;
+}

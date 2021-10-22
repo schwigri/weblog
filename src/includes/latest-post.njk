@@ -1,0 +1,21 @@
+{% set latestPost = collections.post | reverse | sameLocale(locale) | first %}
+
+{% if latestPost.data.title and latestPost.data.page.excerpt and latestPost.data.featuredImage.src %}
+{% set featuredImage = latestPost.data.featuredImage %}
+  <article class="latest-post">
+    {% if featuredImage.src %}
+      <a class="latest-post-image-link" href="{{ latestPost.url | url}}">
+        <div class="latest-post-image-wrapper">
+          {% image featuredImage.src, featuredImage.alt, 780 %}
+        </div>
+      </a>
+    {% endif %}
+
+    <div class="latest-post-content">
+      <h1 class="latest-post-title">
+        <a class="latest-post-title-link" href="{{ latestPost.url | url}}">{{ latestPost.data.title }}</a>
+      </h1>
+      <p>{{latestPost.data.page.excerpt | safe }}</p>
+    </div>
+  </article>
+{% endif %}

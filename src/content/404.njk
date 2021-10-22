@@ -1,0 +1,30 @@
+---
+locale: en-US
+permalink: /404.html
+---
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="t9n" data-t9n="en-US" lang="en-US">
+  {% set title = "Page not found" %}
+  {% include "page.njk" %}
+</div>
+
+<div class="t9n" data-t9n="de-CH" lang="de-CH">
+  {% set title = "Nicht gefunden" %}
+  {% include "page.njk" %}
+</div>
+
+<div class="t9n" data-t9n="ja" lang="ja">
+  {% set title = "見つからない" %}
+  {% include "page.njk" %}
+</div>
+
+
+{% set error404js %}
+  {% include "scripts/404.js" %}
+{% endset %}
+<script>{{ error404js | jsmin | safe }}</script>
+
+{% endblock %}
